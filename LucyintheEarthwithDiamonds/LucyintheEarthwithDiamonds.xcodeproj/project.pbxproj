@@ -1,0 +1,541 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A5394CCF1F27DDB000FCF3EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5394CCE1F27DDB000FCF3EA /* AppDelegate.swift */; };
+		A5394CD11F27DDB000FCF3EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5394CD01F27DDB000FCF3EA /* ViewController.swift */; };
+		A5394CD41F27DDB000FCF3EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5394CD21F27DDB000FCF3EA /* Main.storyboard */; };
+		A5394CD61F27DDB000FCF3EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5394CD51F27DDB000FCF3EA /* Assets.xcassets */; };
+		A5394CD91F27DDB000FCF3EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5394CD71F27DDB000FCF3EA /* LaunchScreen.storyboard */; };
+		A5394CE41F27DDB000FCF3EA /* LucyintheEarthwithDiamondsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5394CE31F27DDB000FCF3EA /* LucyintheEarthwithDiamondsTests.swift */; };
+		A5394CEF1F27DDB000FCF3EA /* LucyintheEarthwithDiamondsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5394CEE1F27DDB000FCF3EA /* LucyintheEarthwithDiamondsUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A5394CE01F27DDB000FCF3EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5394CC31F27DDB000FCF3EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5394CCA1F27DDB000FCF3EA;
+			remoteInfo = LucyintheEarthwithDiamonds;
+		};
+		A5394CEB1F27DDB000FCF3EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5394CC31F27DDB000FCF3EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5394CCA1F27DDB000FCF3EA;
+			remoteInfo = LucyintheEarthwithDiamonds;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A5394CCB1F27DDB000FCF3EA /* LucyintheEarthwithDiamonds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LucyintheEarthwithDiamonds.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5394CCE1F27DDB000FCF3EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A5394CD01F27DDB000FCF3EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A5394CD31F27DDB000FCF3EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A5394CD51F27DDB000FCF3EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A5394CD81F27DDB000FCF3EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A5394CDA1F27DDB000FCF3EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5394CDF1F27DDB000FCF3EA /* LucyintheEarthwithDiamondsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LucyintheEarthwithDiamondsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5394CE31F27DDB000FCF3EA /* LucyintheEarthwithDiamondsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucyintheEarthwithDiamondsTests.swift; sourceTree = "<group>"; };
+		A5394CE51F27DDB000FCF3EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5394CEA1F27DDB000FCF3EA /* LucyintheEarthwithDiamondsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LucyintheEarthwithDiamondsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5394CEE1F27DDB000FCF3EA /* LucyintheEarthwithDiamondsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucyintheEarthwithDiamondsUITests.swift; sourceTree = "<group>"; };
+		A5394CF01F27DDB000FCF3EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A5394CC81F27DDB000FCF3EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5394CDC1F27DDB000FCF3EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5394CE71F27DDB000FCF3EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A5394CC21F27DDB000FCF3EA = {
+			isa = PBXGroup;
+			children = (
+				A5394CCD1F27DDB000FCF3EA /* LucyintheEarthwithDiamonds */,
+				A5394CE21F27DDB000FCF3EA /* LucyintheEarthwithDiamondsTests */,
+				A5394CED1F27DDB000FCF3EA /* LucyintheEarthwithDiamondsUITests */,
+				A5394CCC1F27DDB000FCF3EA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A5394CCC1F27DDB000FCF3EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A5394CCB1F27DDB000FCF3EA /* LucyintheEarthwithDiamonds.app */,
+				A5394CDF1F27DDB000FCF3EA /* LucyintheEarthwithDiamondsTests.xctest */,
+				A5394CEA1F27DDB000FCF3EA /* LucyintheEarthwithDiamondsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A5394CCD1F27DDB000FCF3EA /* LucyintheEarthwithDiamonds */ = {
+			isa = PBXGroup;
+			children = (
+				A5394CCE1F27DDB000FCF3EA /* AppDelegate.swift */,
+				A5394CD01F27DDB000FCF3EA /* ViewController.swift */,
+				A5394CD21F27DDB000FCF3EA /* Main.storyboard */,
+				A5394CD51F27DDB000FCF3EA /* Assets.xcassets */,
+				A5394CD71F27DDB000FCF3EA /* LaunchScreen.storyboard */,
+				A5394CDA1F27DDB000FCF3EA /* Info.plist */,
+			);
+			path = LucyintheEarthwithDiamonds;
+			sourceTree = "<group>";
+		};
+		A5394CE21F27DDB000FCF3EA /* LucyintheEarthwithDiamondsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A5394CE31F27DDB000FCF3EA /* LucyintheEarthwithDiamondsTests.swift */,
+				A5394CE51F27DDB000FCF3EA /* Info.plist */,
+			);
+			path = LucyintheEarthwithDiamondsTests;
+			sourceTree = "<group>";
+		};
+		A5394CED1F27DDB000FCF3EA /* LucyintheEarthwithDiamondsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A5394CEE1F27DDB000FCF3EA /* LucyintheEarthwithDiamondsUITests.swift */,
+				A5394CF01F27DDB000FCF3EA /* Info.plist */,
+			);
+			path = LucyintheEarthwithDiamondsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A5394CCA1F27DDB000FCF3EA /* LucyintheEarthwithDiamonds */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5394CF31F27DDB000FCF3EA /* Build configuration list for PBXNativeTarget "LucyintheEarthwithDiamonds" */;
+			buildPhases = (
+				A5394CC71F27DDB000FCF3EA /* Sources */,
+				A5394CC81F27DDB000FCF3EA /* Frameworks */,
+				A5394CC91F27DDB000FCF3EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LucyintheEarthwithDiamonds;
+			productName = LucyintheEarthwithDiamonds;
+			productReference = A5394CCB1F27DDB000FCF3EA /* LucyintheEarthwithDiamonds.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A5394CDE1F27DDB000FCF3EA /* LucyintheEarthwithDiamondsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5394CF61F27DDB000FCF3EA /* Build configuration list for PBXNativeTarget "LucyintheEarthwithDiamondsTests" */;
+			buildPhases = (
+				A5394CDB1F27DDB000FCF3EA /* Sources */,
+				A5394CDC1F27DDB000FCF3EA /* Frameworks */,
+				A5394CDD1F27DDB000FCF3EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5394CE11F27DDB000FCF3EA /* PBXTargetDependency */,
+			);
+			name = LucyintheEarthwithDiamondsTests;
+			productName = LucyintheEarthwithDiamondsTests;
+			productReference = A5394CDF1F27DDB000FCF3EA /* LucyintheEarthwithDiamondsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A5394CE91F27DDB000FCF3EA /* LucyintheEarthwithDiamondsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5394CF91F27DDB000FCF3EA /* Build configuration list for PBXNativeTarget "LucyintheEarthwithDiamondsUITests" */;
+			buildPhases = (
+				A5394CE61F27DDB000FCF3EA /* Sources */,
+				A5394CE71F27DDB000FCF3EA /* Frameworks */,
+				A5394CE81F27DDB000FCF3EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5394CEC1F27DDB000FCF3EA /* PBXTargetDependency */,
+			);
+			name = LucyintheEarthwithDiamondsUITests;
+			productName = LucyintheEarthwithDiamondsUITests;
+			productReference = A5394CEA1F27DDB000FCF3EA /* LucyintheEarthwithDiamondsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A5394CC31F27DDB000FCF3EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Niclas Scheuing";
+				TargetAttributes = {
+					A5394CCA1F27DDB000FCF3EA = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 834CD6YLQQ;
+						ProvisioningStyle = Automatic;
+					};
+					A5394CDE1F27DDB000FCF3EA = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 834CD6YLQQ;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A5394CCA1F27DDB000FCF3EA;
+					};
+					A5394CE91F27DDB000FCF3EA = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 834CD6YLQQ;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A5394CCA1F27DDB000FCF3EA;
+					};
+				};
+			};
+			buildConfigurationList = A5394CC61F27DDB000FCF3EA /* Build configuration list for PBXProject "LucyintheEarthwithDiamonds" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A5394CC21F27DDB000FCF3EA;
+			productRefGroup = A5394CCC1F27DDB000FCF3EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A5394CCA1F27DDB000FCF3EA /* LucyintheEarthwithDiamonds */,
+				A5394CDE1F27DDB000FCF3EA /* LucyintheEarthwithDiamondsTests */,
+				A5394CE91F27DDB000FCF3EA /* LucyintheEarthwithDiamondsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A5394CC91F27DDB000FCF3EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5394CD91F27DDB000FCF3EA /* LaunchScreen.storyboard in Resources */,
+				A5394CD61F27DDB000FCF3EA /* Assets.xcassets in Resources */,
+				A5394CD41F27DDB000FCF3EA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5394CDD1F27DDB000FCF3EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5394CE81F27DDB000FCF3EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A5394CC71F27DDB000FCF3EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5394CD11F27DDB000FCF3EA /* ViewController.swift in Sources */,
+				A5394CCF1F27DDB000FCF3EA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5394CDB1F27DDB000FCF3EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5394CE41F27DDB000FCF3EA /* LucyintheEarthwithDiamondsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5394CE61F27DDB000FCF3EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5394CEF1F27DDB000FCF3EA /* LucyintheEarthwithDiamondsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A5394CE11F27DDB000FCF3EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5394CCA1F27DDB000FCF3EA /* LucyintheEarthwithDiamonds */;
+			targetProxy = A5394CE01F27DDB000FCF3EA /* PBXContainerItemProxy */;
+		};
+		A5394CEC1F27DDB000FCF3EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5394CCA1F27DDB000FCF3EA /* LucyintheEarthwithDiamonds */;
+			targetProxy = A5394CEB1F27DDB000FCF3EA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A5394CD21F27DDB000FCF3EA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5394CD31F27DDB000FCF3EA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A5394CD71F27DDB000FCF3EA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5394CD81F27DDB000FCF3EA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A5394CF11F27DDB000FCF3EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A5394CF21F27DDB000FCF3EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A5394CF41F27DDB000FCF3EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 834CD6YLQQ;
+				INFOPLIST_FILE = LucyintheEarthwithDiamonds/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nick.LucyintheEarthwithDiamonds;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A5394CF51F27DDB000FCF3EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 834CD6YLQQ;
+				INFOPLIST_FILE = LucyintheEarthwithDiamonds/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nick.LucyintheEarthwithDiamonds;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		A5394CF71F27DDB000FCF3EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 834CD6YLQQ;
+				INFOPLIST_FILE = LucyintheEarthwithDiamondsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nick.LucyintheEarthwithDiamondsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LucyintheEarthwithDiamonds.app/LucyintheEarthwithDiamonds";
+			};
+			name = Debug;
+		};
+		A5394CF81F27DDB000FCF3EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 834CD6YLQQ;
+				INFOPLIST_FILE = LucyintheEarthwithDiamondsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nick.LucyintheEarthwithDiamondsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LucyintheEarthwithDiamonds.app/LucyintheEarthwithDiamonds";
+			};
+			name = Release;
+		};
+		A5394CFA1F27DDB000FCF3EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 834CD6YLQQ;
+				INFOPLIST_FILE = LucyintheEarthwithDiamondsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nick.LucyintheEarthwithDiamondsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = LucyintheEarthwithDiamonds;
+			};
+			name = Debug;
+		};
+		A5394CFB1F27DDB000FCF3EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 834CD6YLQQ;
+				INFOPLIST_FILE = LucyintheEarthwithDiamondsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nick.LucyintheEarthwithDiamondsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = LucyintheEarthwithDiamonds;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A5394CC61F27DDB000FCF3EA /* Build configuration list for PBXProject "LucyintheEarthwithDiamonds" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5394CF11F27DDB000FCF3EA /* Debug */,
+				A5394CF21F27DDB000FCF3EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5394CF31F27DDB000FCF3EA /* Build configuration list for PBXNativeTarget "LucyintheEarthwithDiamonds" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5394CF41F27DDB000FCF3EA /* Debug */,
+				A5394CF51F27DDB000FCF3EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A5394CF61F27DDB000FCF3EA /* Build configuration list for PBXNativeTarget "LucyintheEarthwithDiamondsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5394CF71F27DDB000FCF3EA /* Debug */,
+				A5394CF81F27DDB000FCF3EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A5394CF91F27DDB000FCF3EA /* Build configuration list for PBXNativeTarget "LucyintheEarthwithDiamondsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5394CFA1F27DDB000FCF3EA /* Debug */,
+				A5394CFB1F27DDB000FCF3EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A5394CC31F27DDB000FCF3EA /* Project object */;
+}
