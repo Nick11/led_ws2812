@@ -1,3 +1,5 @@
+scala/external/*
+!scala/external/
 .idea/
 *DS_Store
 # Byte-compiled / optimized / DLL files
