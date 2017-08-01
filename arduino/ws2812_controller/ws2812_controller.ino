@@ -18,7 +18,7 @@
      
     void setup() {
       Serial.begin(9600); // set the baud rate
-      //Serial.println("open");
+      Serial.println("open");
       strip.begin();
       clearLEDs();
       strip.show();
