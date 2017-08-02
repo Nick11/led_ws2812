@@ -15,7 +15,9 @@ Open the arduino/ws2812_controller.ino file and upload it to the connected ardui
 ### Setup Scala Server
 #### Dependencies
 - jSerialComm (https://github.com/Fazecast/jSerialComm/wiki/Installation) for Arduino communication. Is getting installed by sbt.
-- Java-Arduino-Communication-Library (https://github.com/HirdayGupta/Java-Arduino-Communication-Library) for Arduino communication. Is getting installed by sbt.
+- `Java-Arduino-Communication-Library (https://github.com/HirdayGupta/Java-Arduino-Communication-Library) for Arduino communication
+ - `cd external`
+ - `git clone git@github.com:HirdayGupta/Java-Arduino-Communication-Library.git`
 #### Import int eclipse
 In eclipse: File → Import → Existing Projects into Workspace
 
