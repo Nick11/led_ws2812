@@ -12,20 +12,23 @@
     #include <Adafruit_NeoPixel.h>
      
     #define PIN 2
-    #define N_LEDS 144
+    #define N_LEDS 30
      
     Adafruit_NeoPixel strip = Adafruit_NeoPixel(N_LEDS, PIN, NEO_GRB + NEO_KHZ800);
      
     void setup() {
-      Serial.begin(9600); // set the baud rate
-      Serial.println("open");
+      connect();
       strip.begin();
       clearLEDs();
+      //set_color(0,255);
       strip.show();
     }
      
     void loop() {
-      
+      //If the server dis- and reconnects
+      if (!Serial){
+        connect();
+      }
       //chase(strip.Color(105, 0, 0)); // Red
       //chase(strip.Color(0, 105, 0)); // Green
       //chase(strip.Color(0, 0, 105)); // Blue
@@ -39,24 +42,47 @@
         char green = Serial.read(); // read the incoming data
         char blue = Serial.read(); // read the incoming data
 
-        if(ctrl_byte == 1)
+        //If controll byte is anything different from 0, check for special commands
+        uint32_t color = strip.Color(red, green, blue);
+        switch(char(ctrl_byte))
         {
-          Serial.write(N_LEDS);
-        }
-        else
-        {
-        
-          uint32_t color = strip.Color(red, green, blue);
-          Serial.write(green);
-          set_color(addr, color);
+          case char(0):
+            //uint32_t color = strip.Color(red, green, blue);
+            Serial.println("set color");
+            set_color(addr, color);
+            break;
+          case 'n':
+            Serial.write(N_LEDS);
+            break;
+          case 'a':
+            set_all(color);
+            Serial.println("set all");
+            break;  
         }
       }
     }
 
+    static void connect()
+    {
+      Serial.begin(9600); // set the baud rate
+      while (!Serial) {
+        delay(25); // wait for serial port to connect. Needed for Leonardo only
+      }
+      Serial.println("open");
+    }
+    
     static void set_color(uint16_t led_id, uint32_t color)
     {
           strip.setPixelColor(led_id, color); // Draw new pixel
           strip.show();
+    }
+
+    static void set_all(uint32_t color)
+    {
+      for(uint16_t i=0; i<strip.numPixels()+4; i++) {
+          strip.setPixelColor(i  , color);
+      }
+     strip.show();
     }
     
     static void chase(uint32_t c) {
