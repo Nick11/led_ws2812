@@ -19,8 +19,7 @@
     void setup() {
       connect();
       strip.begin();
-      clearLEDs();
-      //set_color(0,255);
+      //clearLEDs();
       strip.show();
     }
      
@@ -60,27 +59,29 @@
             break;
           case 'd'://disconnect
             Serial.println("closed");
+            strip.Color(255, 0, 0);
             //Serial.end();
             connect();
-            
         }
       }
     }
 
     static void connect()
     {
-      Serial.begin(9600); // set the baud rate
+      
+      Serial.begin(12000); // set the baud rate
       clearLEDs();
       while (!Serial) {
         delay(25); // wait for serial port to connect. Needed for Leonardo only
       }
+      set_all(strip.Color(0, 0, 255));
       char read_char = ' ';
-      while (read_char != 'o')
+      while (Serial.available()<= 5 && read_char != 'o')
       {
         read_char = char(Serial.read());
         delay(25);
       }
-      set_all(255);
+      set_all(strip.Color(0, 255, 0));
       Serial.println("open");
     }
     

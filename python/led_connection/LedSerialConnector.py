@@ -1,7 +1,6 @@
 import serial,sys
 from time import sleep
 import serial.tools.list_ports
-from ClosableSerialConnection import ClosableSerialConnection
 
 class LedSerialConnector:
     """
@@ -18,7 +17,7 @@ class LedSerialConnector:
     """
     led_count = -1
     serial_connection = None
-    BAUD_RATE = 9600
+    BAUD_RATE = 12000
     TIMEOUT = 1 #in seconds
 
     def __init__(self, serial_port_name):
@@ -30,11 +29,16 @@ class LedSerialConnector:
         """
         (connection, port_name) = self.find_port()
         if connection == None:
-            print('No valid devise found. Aborting')
+            print('No valid device found. Aborting')
             sys.exit(1)
         else:
             self.serial_connection = connection
             self.serial_port_name = port_name
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.disconnect()
 
     def get_connection(self):
         if self.serial_connection == None:
@@ -43,59 +47,59 @@ class LedSerialConnector:
         return self.serial_connection
 
     def run(self):
-        with self.get_connection() as ser:
-            #ser.readline()
-            #print(ser.readline())  # Read the newest output from the Arduin
-            #b = bytearray()
-            #b.append(0xFF0000)
-            #sleep(1)  # Delay for one tenth of a second
-            #ser.write(b'\x00\x00\x00\xff\x00')
-            #ser.write(str.encode("test"))
-            #sleep(10) # Delay for one tenth of a second
-            #print(ser.readline())
+        self.get_connection()
+        #ser.readline()
+        #print(ser.readline())  # Read the newest output from the Arduin
+        #b = bytearray()
+        #b.append(0xFF0000)
+        #sleep(1)  # Delay for one tenth of a second
+        #ser.write(b'\x00\x00\x00\xff\x00')
+        #ser.write(str.encode("test"))
+        #sleep(10) # Delay for one tenth of a second
+        #print(ser.readline())
 
-            while True:
-                user_in = input().strip()
-                if user_in == 'n':
-                    self.get_led_count()
-                elif user_in.startswith('a'):
-                    split_input = user_in.split(' ')
-                    if not len(split_input) == 4:
-                        continue
-                    red = int(split_input[1])
-                    green = int(split_input[2])
-                    blue = int(split_input[3])
-                    self.set_all(red, green, blue)
-                elif user_in.startswith('d'): #disconnect
-                    self.disconnect()
-                    break
-                elif user_in[0].isdigit():
-                    split_input = user_in.split(' ')
-                    if not len(split_input) == 4:
-                        continue
-                    address = int(split_input[0])
-                    red = split_input[1]
-                    green = int(split_input[2])
-                    blue = int(split_input[3])
-                    answ = self.set_one(address=address, red=red, green=green, blue=blue)
-                    print(answ)
-                else:
-                    print('invalid command')
-        #      counter +=1
-        #      chara = chr(counter)
-        #      ser.write(str.encode(chara))
-        #      #ser.write(str(chr(counter))) # Convert the decimal number to ASCII then send it to the Arduino
-              #print(ser.readline()) # Read the newest output from the Arduino
-          #  sleep(.1) # Delay for one tenth of a second
-        #      if counter == 255:
-        #         counter = 32
+        while True:
+            user_in = input().strip()
+            if user_in == 'n':
+                self.get_led_count()
+            elif user_in.startswith('a'):
+                split_input = user_in.split(' ')
+                if not len(split_input) == 4:
+                    continue
+                red = int(split_input[1])
+                green = int(split_input[2])
+                blue = int(split_input[3])
+                self.set_all(red, green, blue)
+            elif user_in.startswith('q'): #quit
+                break
+            elif user_in[0].isdigit():
+                split_input = user_in.split(' ')
+                if not len(split_input) == 4:
+                    continue
+                address = int(split_input[0])
+                red = split_input[1]
+                green = int(split_input[2])
+                blue = int(split_input[3])
+                answ = self.set_one(address=address, red=red, green=green, blue=blue)
+                print(answ)
+            else:
+                print('invalid command')
+    #      counter +=1
+    #      chara = chr(counter)
+    #      ser.write(str.encode(chara))
+    #      #ser.write(str(chr(counter))) # Convert the decimal number to ASCII then send it to the Arduino
+          #print(ser.readline()) # Read the newest output from the Arduino
+      #  sleep(.1) # Delay for one tenth of a second
+    #      if counter == 255:
+    #         counter = 32
 
     def connect(self, serial_port_name):
         failed_attempts = 0
         try:
-            connection = ClosableSerialConnection(serial_port_name, baudrate=self.BAUD_RATE)  # Establish the connection on a specific port
-
+            connection = serial.Serial(serial_port_name, baudrate=self.BAUD_RATE)  # Establish the connection on a specific port
             print('connected')
+            print(connection.readline().decode())
+            connection.write('o'.encode() + b'\x00\x00\x00\x00\x00')
             return connection
         except serial.serialutil.SerialException:
             failed_attempts = failed_attempts+1
@@ -106,17 +110,25 @@ class LedSerialConnector:
             sleep(0.5)
             self.connect(serial_port_name=serial_port_name)
 
-    def disconnect(self):
+    def disconnect(self, connection=None):
+        serial_conn = connection
+        if connection == None:
+            serial_conn = self.serial_connection
+        if serial_conn == None:
+            print('Cannot disconnect a connection that is None.')
+            return
         msg = 'd'.encode() + b'\x00\x00\x00\x00\x00'
-        self.serial_connection.write(msg)
-        answer = self.serial_connection.readline()
+        serial_conn.write(msg)
+        answer = serial_conn.readline()
         success = answer.decode().strip() == 'closed'
         if success:
             print('closed connection')
-            self.serial_connection.close()
-            self.serial_connection = None
         else:
             print('Could not close connection')
+        serial_conn.close()
+        if connection == None:
+            self.serial_connection = None
+
         return success
 
     def get_led_count(self, connection=None):
@@ -158,22 +170,24 @@ class LedSerialConnector:
         found_port = None
         found_connection = None
         for port in ports:
-            try:
-                connection = serial.Serial(port.device, baudrate=self.BAUD_RATE, timeout=self.TIMEOUT)
-                print('Found a device on ',port.device)
-
-                connection.write('o'.encode())
-
-                #Check if it is a led controller. If it is, it will answer with 'connected'
-                answer = connection.readline()
-                if not answer.decode().strip() == 'open':
+            print('Found a device on ', port.device)
+            (connection, success) = self.try_port(port.device)
+            #retry a few times
+            for retry in range(2):
+                if not connection == None and success:
+                    #everything went well
+                    found_connection = connection
+                    found_port = port.device
+                    break
+                elif not connection == None:
+                    #could connect, but not getting answer, retry
+                    #print(connection.readline().decode())
+                    print('Connecting to ', port.device, ' failed. Retrying.')
+                    self.disconnect(connection=connection)
+                    (connection, success) = self.try_port(port_name=port.device)
+                else:
+                    #all failed
                     continue
-
-                found_connection = connection
-                found_port = port.device
-            except serial.serialutil.SerialException:
-                continue
-        #close port again
         if not found_port == None:
             #set timeout to normal value
             found_connection.timeout = self.TIMEOUT
@@ -181,7 +195,32 @@ class LedSerialConnector:
             print(found_port, 'is a valid LED controller')
         return (found_connection, found_port)
 
+    def try_port(self, port_name):
+        try:
+            connection = serial.Serial(port_name, baudrate=self.BAUD_RATE, timeout=1, write_timeout=1)
+            #print(connection.readline())
+            connection.write('o'.encode() + b'\x00\x00\x00\x00\x00')
+
+            # Check if it is a led controller. If it is, it will answer with 'connected'
+            answer = connection.readline()
+            #print(answer)
+            # if the device is not answering correctly, try to disconnect and connect again.
+            # If that fails again, try next device
+            if answer.decode().strip() == 'open':
+                return (connection, True)
+            else:
+                return (connection, False)
+        except serial.serialutil.SerialException as error:
+            print(error)
+            connection.close()
+            return (None, None)
+
 if __name__ == '__main__':
     #server = LedSerialConnector(serial_port_name = 'COM5')
-    server = LedSerialConnector()
-    server.run()
+
+        with LedSerialConnector() as server:
+            try:
+                server.run()
+            except KeyboardInterrupt:
+                print('Killing')
+                server.disconnect()
