@@ -1,7 +1,7 @@
 import serial,sys
 from time import sleep
 import serial.tools.list_ports
-
+from utils.Color import Color
 class LedSerialConnector:
     """
     Protocol:
@@ -22,7 +22,7 @@ class LedSerialConnector:
 
     def __init__(self, serial_port_name):
         self.serial_port_name = serial_port_name
-
+        self.get_connection()
     def __init__(self):
         """
         If no port name is given, try to find it
@@ -69,15 +69,32 @@ class LedSerialConnector:
                 red = int(split_input[1])
                 green = int(split_input[2])
                 blue = int(split_input[3])
-                self.set_all(red, green, blue)
+                answer = self.set_all(red, green, blue)
+                print(answer)
             elif user_in.startswith('q'): #quit
                 break
+            elif user_in.startswith('b'): #burst
+                split_input = user_in.split(' ')
+                if not (len(split_input)-4) % 4:
+                    print('Invalid burst input. Must be list of kind: "address1 red1 green1 blue1 adress2 red2 green2 blue2"')
+                    continue
+                leds = dict()
+                for i in range(1,len(split_input),4): #b 0 255 0 0 10 0 0 255
+                    address = int(split_input[i])
+                    red = int(split_input[i+1])
+                    green = int(split_input[i+2])
+                    blue = int(split_input[i+3])
+                    color = Color(red, green, blue)
+                    leds[address] = color
+                answer = self.set_burst(leds)
+                print(answer)
+
             elif user_in[0].isdigit():
                 split_input = user_in.split(' ')
                 if not len(split_input) == 4:
                     continue
                 address = int(split_input[0])
-                red = split_input[1]
+                red = int(split_input[1])
                 green = int(split_input[2])
                 blue = int(split_input[3])
                 answ = self.set_one(address=address, red=red, green=green, blue=blue)
@@ -118,7 +135,10 @@ class LedSerialConnector:
             print('Cannot disconnect a connection that is None.')
             return
         msg = 'd'.encode() + b'\x00\x00\x00\x00\x00'
-        serial_conn.write(msg)
+        try:
+            serial_conn.write(msg)
+        except serial.serialutil.SerialException:
+            return False
         answer = serial_conn.readline()
         success = answer.decode().strip() == 'closed'
         if success:
@@ -151,6 +171,7 @@ class LedSerialConnector:
         answer = self.serial_connection.readline()
         return answer
 
+
     def set_all(self, red, green, blue):
         #check color values for valid range
         if not (0 <= int(red) <= 255 and 0<=int(green)<=255 and 0<=blue<=255):
@@ -164,6 +185,18 @@ class LedSerialConnector:
         answer = self.serial_connection.readline()
         return answer
 
+    def set_burst(self, address_color_dict):
+        total_msg = 'b'.encode() + len(address_color_dict.items()).to_bytes(2, byteorder='big')
+        for (address,color) in address_color_dict.items():
+            address_bytes = (int(address)).to_bytes(2, byteorder='big')
+            red = bytes([color.red])
+            green = bytes([color.green])
+            blue = bytes([color.blue])
+            msg = b''+address_bytes + red + green + blue
+            total_msg = total_msg + msg
+        self.serial_connection.write(total_msg)
+        answer = self.serial_connection.readline()
+        return answer
 
     def find_port(self):
         ports = serial.tools.list_ports.comports()
@@ -196,6 +229,7 @@ class LedSerialConnector:
         return (found_connection, found_port)
 
     def try_port(self, port_name):
+        connection = None
         try:
             connection = serial.Serial(port_name, baudrate=self.BAUD_RATE, timeout=1, write_timeout=1)
             #print(connection.readline())
@@ -212,7 +246,8 @@ class LedSerialConnector:
                 return (connection, False)
         except serial.serialutil.SerialException as error:
             print(error)
-            connection.close()
+            if not connection == None:
+                connection.close()
             return (None, None)
 
 if __name__ == '__main__':

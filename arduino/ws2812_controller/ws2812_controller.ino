@@ -34,38 +34,72 @@
       
       if(Serial.available()>5){ // only send data back if data has been sent
         byte ctrl_byte = Serial.read();
-        byte addr_byte_1 = Serial.read();
-        byte addr_byte_2 = Serial.read();
-        int addr = addr_byte_1 << 8 | addr_byte_2;
-        char red = Serial.read(); // read the incoming data
-        char green = Serial.read(); // read the incoming data
-        char blue = Serial.read(); // read the incoming data
+        char ctrl_char = char(ctrl_byte);
 
-        //If controll byte is anything different from 0, check for special commands
-        uint32_t color = strip.Color(red, green, blue);
-        switch(char(ctrl_byte))
+        if(ctrl_char == char(0))
         {
-          case char(0):
-            //uint32_t color = strip.Color(red, green, blue);
-            Serial.println("set color");
-            set_color(addr, color);
-            break;
-          case 'n':
-            Serial.write(N_LEDS);
-            break;
-          case 'a':
-            set_all(color);
-            Serial.println("set all");
-            break;
-          case 'd'://disconnect
+          //uint32_t color = strip.Color(red, green, blue);
+          Serial.println("set color");
+          int addr = read_address();
+          uint32_t color = read_color();
+          set_color(addr, color);
+        }
+        else if(ctrl_char == 'n')
+        {
+          int addr = read_address();
+          uint32_t color = read_color();
+          Serial.write(N_LEDS);
+        }
+        else if(ctrl_char == 'a')
+        {
+          int addr = read_address();
+          uint32_t color = read_color();
+          set_all(color);
+          Serial.println("set all");
+        }
+        else if(ctrl_char == 'd')
+        {//disconnect
             Serial.println("closed");
             strip.Color(255, 0, 0);
             //Serial.end();
             connect();
         }
+        else if(ctrl_char == 'b')
+        {//burst, set all leds
+          Serial.println("set burst");
+          uint32_t total_count = read_address();
+          for(uint16_t i=0; i<total_count*5; i=i+5)
+          {
+            int addr = read_address();
+            uint32_t color = read_color();
+            strip.setPixelColor(addr, color);
+          }
+          strip.show();
+        }
+        else{
+          int addr = read_address();
+          uint32_t color = read_color();
+        }
       }
     }
+    
+    static uint32_t read_color()
+    {
+      char red = Serial.read(); // read the incoming data
+      char green = Serial.read(); // read the incoming data
+      char blue = Serial.read(); // read the incoming data
+      uint32_t color = strip.Color(red, green, blue);
+      return color;
+    }
 
+    static int read_address()
+    {
+      byte addr_byte_1 = Serial.read();
+      byte addr_byte_2 = Serial.read();
+      int addr = addr_byte_1 << 8 | addr_byte_2;
+      return addr;
+    }
+    
     static void connect()
     {
       
@@ -90,6 +124,7 @@
           strip.setPixelColor(led_id, color); // Draw new pixel
           strip.show();
     }
+
 
     static void set_all(uint32_t color)
     {
