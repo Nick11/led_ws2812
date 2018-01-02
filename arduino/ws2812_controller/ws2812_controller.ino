@@ -12,7 +12,7 @@
     #include <Adafruit_NeoPixel.h>
      
     #define PIN 2
-    #define N_LEDS 30
+    #define N_LEDS 90
      
     Adafruit_NeoPixel strip = Adafruit_NeoPixel(N_LEDS, PIN, NEO_GRB + NEO_KHZ800);
      
@@ -57,7 +57,12 @@
           case 'a':
             set_all(color);
             Serial.println("set all");
-            break;  
+            break;
+          case 'd'://disconnect
+            Serial.println("closed");
+            //Serial.end();
+            connect();
+            
         }
       }
     }
@@ -65,9 +70,17 @@
     static void connect()
     {
       Serial.begin(9600); // set the baud rate
+      clearLEDs();
       while (!Serial) {
         delay(25); // wait for serial port to connect. Needed for Leonardo only
       }
+      char read_char = ' ';
+      while (read_char != 'o')
+      {
+        read_char = char(Serial.read());
+        delay(25);
+      }
+      set_all(255);
       Serial.println("open");
     }
     
