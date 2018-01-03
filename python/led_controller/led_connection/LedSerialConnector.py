@@ -61,7 +61,8 @@ class LedSerialConnector:
         while True:
             user_in = input().strip()
             if user_in == 'n':
-                self.get_led_count()
+                answer = self.get_led_count()
+                print(answer)
             elif user_in.startswith('a'):
                 split_input = user_in.split(' ')
                 if not len(split_input) == 4:
@@ -158,7 +159,6 @@ class LedSerialConnector:
         connection.write(msg)
         number_leds = ord(connection.read())
         self.led_count = number_leds
-        print(number_leds)
         return number_leds
 
     def set_one(self, address, red, green, blue):
@@ -186,12 +186,14 @@ class LedSerialConnector:
         return answer
 
     def set_burst(self, address_color_dict):
+        if len(address_color_dict.items()) == 0:
+            return
         total_msg = 'b'.encode() + len(address_color_dict.items()).to_bytes(2, byteorder='big')
         for (address,color) in address_color_dict.items():
             address_bytes = (int(address)).to_bytes(2, byteorder='big')
-            red = bytes([color.red])
-            green = bytes([color.green])
-            blue = bytes([color.blue])
+            red = bytes([int(color.red)])
+            green = bytes([int(color.green)])
+            blue = bytes([int(color.blue)])
             msg = b''+address_bytes + red + green + blue
             total_msg = total_msg + msg
         self.serial_connection.write(total_msg)
